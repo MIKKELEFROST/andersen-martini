@@ -26,25 +26,25 @@
         .hero-section {
             background-color: #525252;
             color: white;
-            padding: 100px 20px;
+            padding: 60px 20px 100px;
             position: relative;
         }
 
         .search-container {
             background: white;
             border-radius: 8px;
-            padding: 30px;
+            padding: 25px;
             color: #3a3a3a;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             max-width: 1000px;
-            margin: -60px auto 0;
+            margin: -50px auto 0;
             position: relative;
             z-index: 40;
         }
 
         .category-btn {
             border: 1px solid #ccc;
-            padding: 15px;
+            padding: 12px;
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
@@ -54,8 +54,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            min-width: 110px;
+            gap: 8px;
+            min-width: 90px;
+            flex: 1;
         }
         .category-btn.active {
             background-color: #f6b303;
@@ -123,12 +124,12 @@
 
         .fun-fact-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 100;
             background: #f6b303;
             color: #3a3a3a;
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 50px;
             font-weight: 800;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -137,9 +138,10 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s;
+            font-size: 13px;
         }
         .fun-fact-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             background: white;
         }
 
@@ -152,6 +154,18 @@
         }
         .experience-card:hover {
             border-color: #f6b303;
+        }
+
+        /* Responsive Navigation spacing */
+        .centered-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        @media (min-width: 768px) {
+            .centered-nav {
+                gap: 40px;
+            }
         }
     </style>
 </head>
@@ -173,12 +187,12 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="bg-am-dark text-white py-6 px-6 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center">
-            <div class="text-2xl font-bold tracking-tight">
+    <nav class="bg-am-dark text-white py-4 md:py-6 px-4 md:px-6 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-xl md:text-2xl font-semibold tracking-tight">
                 Andersen & Martini <span class="font-light text-am-yellow">| Mikkel Frost</span>
             </div>
-            <div class="flex justify-center gap-10 text-sm font-medium">
+            <div class="centered-nav text-[11px] md:text-sm font-medium">
                 <a href="#ansogning" class="hover:text-am-yellow transition">Ansøgning</a>
                 <a href="#erfaring" class="hover:text-am-yellow transition">Erfaring</a>
                 <a href="#kompetencer" class="hover:text-am-yellow transition">Kompetencer</a>
@@ -194,38 +208,40 @@
 
     <!-- Hero Section -->
     <header class="hero-section">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="md:w-1/2 space-y-8 z-30">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+            <!-- Mobile: Denne kommer først pga. rækkefølgen i HTML -->
+            <div class="w-full md:w-1/2 space-y-6 md:space-y-8 z-30 order-1">
+                <h1 class="text-3xl md:text-6xl font-extrabold leading-tight text-center md:text-left">
                     Find din drømmespecialist...
                 </h1>
-                <div class="flex gap-4">
+                <div class="flex gap-2 md:gap-4 overflow-x-auto pb-2 md:pb-0">
                     <div id="btn-performance" class="category-btn active" onclick="switchCategory('performance')">
-                        <i class="fas fa-chart-line text-xl"></i>
-                        <span class="text-[10px] font-bold uppercase">Performance</span>
+                        <i class="fas fa-chart-line text-lg md:text-xl"></i>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase">Performance</span>
                     </div>
                     <div id="btn-leadgen" class="category-btn" onclick="switchCategory('leadgen')">
-                        <i class="fas fa-key text-xl"></i>
-                        <span class="text-[10px] font-bold uppercase">Lead Gen</span>
+                        <i class="fas fa-key text-lg md:text-xl"></i>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase">Lead Gen</span>
                     </div>
                     <div id="btn-strategy" class="category-btn" onclick="switchCategory('strategy')">
-                        <i class="fas fa-lightbulb text-xl"></i>
-                        <span class="text-[10px] font-bold uppercase">Strategi</span>
+                        <i class="fas fa-lightbulb text-lg md:text-xl"></i>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase">Strategi</span>
                     </div>
                 </div>
             </div>
 
-            <div class="md:w-1/2 flex justify-end">
+            <!-- Mobile: Denne kommer derefter -->
+            <div class="w-full md:w-1/2 flex justify-center md:justify-end order-2">
                 <div class="relative">
                     <img src="https://media.licdn.com/dms/image/v2/D4D03AQHMt2m3QW9h7w/profile-displayphoto-shrink_400_400/B4DZWgTahAGcAk-/0/1742151199565?e=1773878400&v=beta&t=aFu-E4iRtpklQVnbr5IMZC5ZYIbe6ZBnYEGiHTsd7TA" 
-                         class="circle-img-main w-64 h-64 shadow-2xl" alt="Mikkel E. Frost">
+                         class="circle-img-main w-48 h-48 md:w-64 md:h-64 shadow-2xl" alt="Mikkel E. Frost">
                     
-                    <div class="mt-6 bg-white/10 backdrop-blur-md p-5 rounded-lg border border-white/20 text-xs space-y-3">
+                    <div class="mt-4 md:mt-6 bg-white/10 backdrop-blur-md p-4 md:p-5 rounded-lg border border-white/20 text-[10px] md:text-xs space-y-2 md:space-y-3">
                         <p class="font-bold border-b border-white/20 pb-2 mb-2 uppercase tracking-widest text-am-yellow">Specifikationer</p>
-                        <div class="flex justify-between"><span>Alder:</span> <span class="font-bold">26 år</span></div>
-                        <div class="flex justify-between"><span>Klub:</span> <span class="font-bold">Aston Villa fan</span></div>
-                        <div class="flex justify-between"><span>Disciplin:</span> <span class="font-bold">Træner kl. 05:30</span></div>
-                        <div class="flex justify-between"><span>Erfaring:</span> <span class="font-bold">7 år</span></div>
+                        <div class="flex justify-between gap-4"><span>Alder:</span> <span class="font-bold text-right">26 år</span></div>
+                        <div class="flex justify-between gap-4"><span>Klub:</span> <span class="font-bold text-right">Aston Villa fan</span></div>
+                        <div class="flex justify-between gap-4"><span>Disciplin:</span> <span class="font-bold text-right">Træner kl. 05:30</span></div>
+                        <div class="flex justify-between gap-4"><span>Erfaring:</span> <span class="font-bold text-right">7 år</span></div>
                     </div>
                 </div>
             </div>
@@ -233,9 +249,9 @@
     </header>
 
     <!-- Search Bar -->
-    <div class="px-6">
+    <div class="px-4 md:px-6">
         <div class="search-container">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
                 <div class="space-y-2">
                     <label class="text-[10px] font-bold text-gray-500 uppercase">Fokusområde</label>
                     <select id="focus-select" class="w-full p-3 border border-gray-200 rounded text-sm focus:outline-none focus:border-am-yellow">
@@ -253,7 +269,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                 <div class="flex-1 w-full space-y-4">
                     <div class="flex justify-between text-[11px] font-bold">
                         <span>Budgetansvar (erfaring)</span>
@@ -269,9 +285,9 @@
     </div>
 
     <!-- Erfaring -->
-    <section id="erfaring" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold mb-12 uppercase">Erhvervserfaring</h2>
-        <div class="space-y-8">
+    <section id="erfaring" class="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-8 md:mb-12 uppercase">Erhvervserfaring</h2>
+        <div class="space-y-6 md:space-y-8">
             
             <!-- Adentify -->
             <div class="experience-card border-l-4 border-am-yellow">
@@ -322,8 +338,8 @@
                     Som ene mand i min konsulentvirksomhed har jeg altid elsket at udforske nye teknologier før alle andre. Jeg er passioneret omkring AI, automations og tekniske systemer, der kan optimere forretningen.
                 </p>
                 <div class="bg-am-dark text-white p-4 rounded-lg flex items-center gap-4">
-                    <div class="text-am-yellow text-2xl font-black">250.000+ kr.</div>
-                    <p class="text-[11px] font-medium leading-tight">
+                    <div class="text-am-yellow text-xl md:text-2xl font-black">250.000+ kr.</div>
+                    <p class="text-[10px] md:text-[11px] font-medium leading-tight">
                         Jeg har investeret over en kvart million af mine egne penge i abonnementer, software og uddannelse for at være på forkant med de nyeste digitale værktøjer.
                     </p>
                 </div>
@@ -333,64 +349,64 @@
     </section>
 
     <!-- Ansøgning Section -->
-    <section id="ansogning" class="py-24 px-6 bg-am-dark text-white">
+    <section id="ansogning" class="py-16 md:py-24 px-4 md:px-6 bg-am-dark text-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-extrabold mb-8 uppercase tracking-tight">Hvorfor Mikkel Frost?</h2>
-            <div class="space-y-6 text-gray-300 leading-relaxed">
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-8 uppercase tracking-tight">Hvorfor Mikkel Frost?</h2>
+            <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base">
                 <p>
                     Min baggrund kombinerer den tunge specialisterfaring fra Adentify med den entreprenante "find-en-løsning"-mentalitet fra Nuttet Baby. Hos Andersen & Martini kan jeg bringe begge dele i spil. 
                 </p>
                 <p>
                     Jeg er vant til uforudsete ting, og jeg stopper ikke, før problemet er løst. Jeg forstår vigtigheden af at arbejde under pres og levere afkast på marketingbudgettet, præcis som jeg har gjort det for bilforhandlere som NEH Biler og EG Biler.
                 </p>
-                <div class="pt-8 flex gap-4">
-                    <a href="tel:+4541826799" class="bg-am-yellow text-am-dark px-6 py-3 rounded font-bold uppercase text-xs">Ring til mig</a>
-                    <a href="mailto:mikkelemilfrost@gmail.com" class="border border-white/20 px-6 py-3 rounded font-bold uppercase text-xs hover:bg-white/5 transition">Send e-mail</a>
+                <div class="pt-8 flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+4541826799" class="bg-am-yellow text-am-dark px-6 py-3 rounded font-bold uppercase text-xs text-center">Ring til mig</a>
+                    <a href="mailto:mikkelemilfrost@gmail.com" class="border border-white/20 px-6 py-3 rounded font-bold uppercase text-xs hover:bg-white/5 transition text-center">Send e-mail</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Kompetencer -->
-    <section id="kompetencer" class="py-24 px-6 text-center">
-        <h2 class="text-3xl font-extrabold mb-16 uppercase tracking-tighter">Teknisk udstyr under motorhjelmen</h2>
+    <section id="kompetencer" class="py-16 md:py-24 px-4 md:px-6 text-center">
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-12 md:mb-16 uppercase tracking-tighter">Teknisk udstyr under motorhjelmen</h2>
         
-        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-16">
-            <div class="skill-card w-28" onclick="openSkillModal('some')">
-                <i class="fas fa-users text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">SoMe Ads</p>
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-16">
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('some')">
+                <i class="fas fa-users text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">SoMe Ads</p>
             </div>
-            <div class="skill-card w-28" onclick="openSkillModal('ppc')">
-                <i class="fas fa-mouse-pointer text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">PPC</p>
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('ppc')">
+                <i class="fas fa-mouse-pointer text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">PPC</p>
             </div>
-            <div class="skill-card w-28" onclick="openSkillModal('tracking')">
-                <i class="fas fa-chart-line text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">Tracking</p>
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('tracking')">
+                <i class="fas fa-chart-line text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">Tracking</p>
             </div>
-            <div class="skill-card w-28" onclick="openSkillModal('hjemmeside')">
-                <i class="fas fa-laptop-code text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">Hjemmeside</p>
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('hjemmeside')">
+                <i class="fas fa-laptop-code text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">Hjemmeside</p>
             </div>
-            <div class="skill-card w-28" onclick="openSkillModal('ai')">
-                <i class="fas fa-robot text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">AI & Automations</p>
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('ai')">
+                <i class="fas fa-robot text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">AI & Automations</p>
             </div>
-            <div class="skill-card w-28" onclick="openSkillModal('seo')">
-                <i class="fas fa-search text-4xl mb-4 text-am-yellow"></i>
-                <p class="text-[10px] font-bold uppercase tracking-widest">SEO</p>
+            <div class="skill-card w-20 md:w-28" onclick="openSkillModal('seo')">
+                <i class="fas fa-search text-3xl md:text-4xl mb-4 text-am-yellow"></i>
+                <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">SEO</p>
             </div>
         </div>
     </section>
 
     <!-- Kontakt Footer -->
-    <footer id="kontakt" class="py-20 px-6 bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <h2 class="text-3xl font-extrabold uppercase italic">Klar til en prøvetur?</h2>
+    <footer id="kontakt" class="py-16 md:py-20 px-4 md:px-6 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold uppercase italic">Klar til en prøvetur?</h2>
                 <p class="text-gray-500 text-sm">Kontakt Mikkel E. Frost og lad os starte dialogen.</p>
             </div>
-            <div class="flex flex-col md:flex-row gap-8 font-bold text-sm">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 font-bold text-[11px] md:text-sm">
                 <a href="mailto:mikkelemilfrost@gmail.com" class="hover:text-am-yellow transition py-2 border-b-2 border-transparent hover:border-am-yellow">
                     <i class="fas fa-envelope mr-2"></i>mikkelemilfrost@gmail.com
                 </a>
@@ -443,33 +459,33 @@
 
         function showSuccessModal() {
             modalBody.innerHTML = `
-                <div class="text-am-yellow text-6xl mb-6"><i class="fas fa-trophy"></i></div>
-                <h2 class="text-3xl font-extrabold mb-4 uppercase tracking-tighter">SÅDAN!</h2>
-                <h3 class="text-xl font-bold mb-4">DU HAR FUNDET MIKKEL FROST</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+                <div class="text-am-yellow text-5xl md:text-6xl mb-6"><i class="fas fa-trophy"></i></div>
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-4 uppercase tracking-tighter">SÅDAN!</h2>
+                <h3 class="text-lg md:text-xl font-bold mb-4">DU HAR FUNDET MIKKEL FROST</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed text-[13px] md:text-sm">
                     Tillykke! Du har lige lokaliseret den mest driftssikre profil på markedet.<br><br>
                     <strong>Model:</strong> Problemknuser (Årgang '99)<br>
                     <strong>Ekstraudstyr:</strong> 250k+ investeret i AI & Tech læring.<br>
                     <strong>Status:</strong> Klar til at løse uforudsete opgaver for A&M.
                 </p>
-                <a href="tel:+4541826799" class="bg-am-yellow text-am-dark px-8 py-4 rounded font-extrabold uppercase tracking-widest inline-block hover:scale-105 transition shadow-lg">Lad os starte motoren!</a>
+                <a href="tel:+4541826799" class="bg-am-yellow text-am-dark px-8 py-4 rounded font-extrabold uppercase tracking-widest inline-block hover:scale-105 transition shadow-lg text-xs">Lad os starte motoren!</a>
             `;
             modal.style.display = 'flex';
         }
 
         function openFunFact() {
             modalBody.innerHTML = `
-                <div class="text-am-yellow text-5xl mb-6"><i class="fas fa-spa"></i></div>
-                <h2 class="text-2xl font-extrabold mb-4 uppercase">Vidste du det?</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+                <div class="text-am-yellow text-4xl md:text-5xl mb-6"><i class="fas fa-spa"></i></div>
+                <h2 class="text-xl md:text-2xl font-extrabold mb-4 uppercase">Vidste du det?</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed text-[13px] md:text-sm">
                     Udover min passion for marketing, blev jeg uddannet som <strong>fysiurgisk massør i 2019</strong>. 
                     Det gav mig en tidlig indsigt i disciplin, kundeservice og vigtigheden af at levere resultater, man kan mærke.
                 </p>
                 <div class="space-y-4">
-                    <a href="https://dk.trustpilot.com/review/mfrostmassage.dk" target="_blank" class="block bg-[#00b67a] text-white py-3 rounded font-bold hover:opacity-90 transition text-xs uppercase">
+                    <a href="https://dk.trustpilot.com/review/mfrostmassage.dk" target="_blank" class="block bg-[#00b67a] text-white py-3 rounded font-bold hover:opacity-90 transition text-[11px] uppercase">
                         <i class="fas fa-star mr-2"></i> Trustpilot anmeldelser
                     </a>
-                    <a href="https://www.google.com/search?q=mfrost+massage&sclient=gws-wiz-serp#mpd=~8324061373516742696/customers/reviews" target="_blank" class="block bg-blue-500 text-white py-3 rounded font-bold hover:opacity-90 transition text-xs uppercase">
+                    <a href="https://www.google.com/search?q=mfrost+massage&sclient=gws-wiz-serp#mpd=~8324061373516742696/customers/reviews" target="_blank" class="block bg-blue-500 text-white py-3 rounded font-bold hover:opacity-90 transition text-[11px] uppercase">
                         <i class="fab fa-google mr-2"></i> Google anmeldelser
                     </a>
                 </div>
@@ -507,11 +523,11 @@
         function openSkillModal(key) {
             const data = skillInfo[key];
             modalBody.innerHTML = `
-                <h2 class="text-2xl font-extrabold mb-4 uppercase text-am-yellow">${data.title}</h2>
-                <div class="text-left text-gray-600 mb-6 leading-relaxed text-sm">
+                <h2 class="text-xl md:text-2xl font-extrabold mb-4 uppercase text-am-yellow">${data.title}</h2>
+                <div class="text-left text-gray-600 mb-6 leading-relaxed text-[13px] md:text-sm">
                     ${data.text}
                 </div>
-                <button onclick="closeModal()" class="border-2 border-am-yellow text-am-yellow px-6 py-2 rounded font-bold hover:bg-am-yellow hover:text-white transition uppercase text-xs">Luk info</button>
+                <button onclick="closeModal()" class="border-2 border-am-yellow text-am-yellow px-6 py-2 rounded font-bold hover:bg-am-yellow hover:text-white transition uppercase text-[10px]">Luk info</button>
             `;
             modal.style.display = 'flex';
         }

@@ -175,7 +175,7 @@
     <!-- Navigation -->
     <nav class="bg-am-dark text-white py-6 px-6 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center">
-            <div class="text-2xl font-extrabold tracking-tight">
+            <div class="text-2xl font-bold tracking-tight">
                 Andersen & Martini <span class="font-light text-am-yellow">| Mikkel Frost</span>
             </div>
             <div class="flex justify-center gap-10 text-sm font-medium">
@@ -204,9 +204,9 @@
                         <i class="fas fa-chart-line text-xl"></i>
                         <span class="text-[10px] font-bold uppercase">Performance</span>
                     </div>
-                    <div id="btn-ecommerce" class="category-btn" onclick="switchCategory('ecommerce')">
-                        <i class="fas fa-shopping-cart text-xl"></i>
-                        <span class="text-[10px] font-bold uppercase">E-commerce</span>
+                    <div id="btn-leadgen" class="category-btn" onclick="switchCategory('leadgen')">
+                        <i class="fas fa-key text-xl"></i>
+                        <span class="text-[10px] font-bold uppercase">Lead Gen</span>
                     </div>
                     <div id="btn-strategy" class="category-btn" onclick="switchCategory('strategy')">
                         <i class="fas fa-lightbulb text-xl"></i>
@@ -410,25 +410,25 @@
 
         const categoryData = {
             performance: {
-                focus: ["Lead Generation", "Paid Social & Search", "Budgetskalering"],
-                platforms: ["Meta & Google Ads", "TikTok Ads", "Bing Ads"],
-                goals: ["Flere prøvekørsler", "Højere ROAS / POAS", "Lead volumen"]
+                focus: ["Lead Generation", "Paid Social & Search", "Konverteringsoptimering"],
+                platforms: ["Meta Ads", "Google Ads", "YouTube Ads"],
+                goals: ["Flere prøvekørsler", "Bookinger", "Lav pris pr. lead"]
             },
-            ecommerce: {
-                focus: ["Conversion Rate Opt.", "Email Marketing", "Profitabilitet"],
-                platforms: ["Shopify / Klaviyo", "WooCommerce", "Amazon / Feed Management"],
-                goals: ["Bundlinjevækst", "Gennemsnitlig ordreværdi", "Retention rate"]
+            leadgen: {
+                focus: ["Marketing Automation", "CRM Integration", "Lead Nurturing"],
+                platforms: ["HubSpot / Salesforce", "E-mail Marketing", "LinkedIn Ads"],
+                goals: ["Kvalificerede leads", "Showroom besøg", "Kunde-loyalitet"]
             },
             strategy: {
-                focus: ["Go-to-market Strategi", "AI Automation", "Data & Dashboarding"],
-                platforms: ["GA4 / GTM / Looker", "Zapier / Make.com", "ChatGPT Customizing"],
-                goals: ["Skalering af forretning", "Digital transformation", "Effektivitet"]
+                focus: ["Digital Transformation", "Kundeoplevelse (CX)", "AI Implementering"],
+                platforms: ["GA4 / GTM / Looker", "AI Agenter", "Forretnings-dashboard"],
+                goals: ["Markedsandel", "Effektivisering", "Fremtidssikring"]
             }
         };
 
         function switchCategory(cat) {
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + cat).classList.add('active');
+            document.getElementById('btn-' + (cat === 'leadgen' ? 'leadgen' : cat)).classList.add('active');
 
             const data = categoryData[cat];
             updateDropdown('focus-select', data.focus);
